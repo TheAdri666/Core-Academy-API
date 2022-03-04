@@ -1,0 +1,25 @@
+{
+  "name": "Core-Academy-API",
+  "version": "1.0.0",
+  "description": "Practice JS API for a backend service",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheAdri666/Core-Academy-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheAdri666/Core-Academy-API/issues"
+  },
+  "homepage": "https://github.com/TheAdri666/Core-Academy-API#readme"
+}
