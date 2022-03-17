@@ -8,4 +8,6 @@ router
 
 router
   .route('/disk/:id')
-  .get(DiskCtrl.findDiskById);
+  .get(DiskCtrl.findDiskById)
+  .put(DiskCtrl.updateDisk)
+  .delete(DiskCtrl.deleteDisk);
