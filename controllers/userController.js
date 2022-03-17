@@ -26,8 +26,30 @@ function addUser(request, response) {
   });
 }
 
+function updateUser(req, res) {
+  const { userId } = req.params;
+
+  User.findByIdAndUpdate(userId, req.body, (err, user) => {
+    if (err) return res.status(500).send(err.message);
+    if (!user) return res.status(404).send({ message: 'User couldn\'t be found' });
+    return res.status(200).send({ message: `User ${user} updated.` }).jsonp(user);
+  });
+}
+
+function deleteUser(req, res) {
+  const { userId } = req.params;
+
+  User.findByIdAndRemove(userId, (err, user) => {
+    if (err) return res.status(500).send(err.message);
+    if (!user) return res.status(404).send({ message: `User ${user} not found!` });
+    return res.status(200).send({ message: `User ${user} deleted successfully!` });
+  });
+}
+
 module.exports = {
   findAllUsers,
   findUserById,
   addUser,
+  updateUser,
+  deleteUser,
 };

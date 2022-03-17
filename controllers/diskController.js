@@ -26,8 +26,30 @@ function addDisk(request, response) {
   });
 }
 
+function updateDisk(req, res) {
+  const { diskId } = req.params;
+
+  Disk.findByIdAndUpdate(diskId, req.body, (err, disk) => {
+    if (err) return res.status(500).send(err.message);
+    if (!disk) return res.status(404).send({ message: 'Disk couldn\'t be found' });
+    return res.status(200).send({ message: `Disk ${disk} updated.` }).jsonp(disk);
+  });
+}
+
+function deleteDisk(req, res) {
+  const { diskId } = req.params;
+
+  Disk.findByIdAndRemove(diskId, (err, disk) => {
+    if (err) return res.status(500).send(err.message);
+    if (!disk) return res.status(404).send({ message: `Disk ${disk} not found!` });
+    return res.status(200).send({ message: `Disk ${disk} deleted successfully!` });
+  });
+}
+
 module.exports = {
   findAllDisks,
   findDiskById,
   addDisk,
+  updateDisk,
+  deleteDisk,
 };
