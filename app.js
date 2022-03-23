@@ -6,6 +6,6 @@ const app = express();
 
 app.use(express.json());
 app.use('/user', userRouter);
-app.use('disk', diskRouter);
+app.use('/disk', diskRouter);
 
 module.exports = app;

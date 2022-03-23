@@ -11,3 +11,5 @@ router
   .get(DiskCtrl.findDiskById)
   .put(DiskCtrl.updateDisk)
   .delete(DiskCtrl.deleteDisk);
+
+module.exports = router;

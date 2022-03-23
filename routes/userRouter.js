@@ -11,3 +11,5 @@ router
   .get(UserCtrl.findUserById)
   .put(UserCtrl.updateUser)
   .delete(UserCtrl.deleteUser);
+
+module.exports = router;
