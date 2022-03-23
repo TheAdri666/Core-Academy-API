@@ -8,8 +8,6 @@ router
 
 router
   .route('/user/:id')
-  .get(UserCtrl.findUserById);
-
-router.get('/', (request, response) => {
-  response.send('Buenªs!');
-});
+  .get(UserCtrl.findUserById)
+  .put(UserCtrl.updateUser)
+  .delete(UserCtrl.deleteUser);
