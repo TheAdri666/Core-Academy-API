@@ -2,7 +2,7 @@ const User = require('../models/userModel');
 
 function findAllUsers(req, res) {
   User.find({}, (error, users) => {
-    if (error) return res.status(500).send(`Error ${error.name}. No users found`);
+    if (error) return res.status(500).send(`Error ${error}. No users found`);
     if (!users) return res.status(404).send('No users were found.');
     return res.status(200).send(users);
   });
@@ -11,7 +11,7 @@ function findAllUsers(req, res) {
 function findUserById(req, res) {
   const { userId } = req.params;
   User.findById(userId, (error, user) => {
-    if (error) return res.status(400).send({ message: `Error ${error.name}. No users found` });
+    if (error) return res.status(400).send({ message: `Error ${error}. No users found` });
     if (!user) return res.status(404).send({ message: 'No users found matching the search criteria' });
     return res.status(200).send(user);
   });
@@ -20,7 +20,7 @@ function findUserById(req, res) {
 function addUser(req, res) {
   const user = new User(req.body);
   user.save((error, userData) => {
-    if (error) return res.status(400).send({ message: `Error ${error.name}. Couldn't create user` });
+    if (error) return res.status(400).send({ message: `Error ${error}. Couldn't create user` });
     if (!user) return res.status(404).send({ message: 'Error. User data can\'t be empty' });
     return res.status(200).send(userData);
   });
