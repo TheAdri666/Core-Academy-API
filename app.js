@@ -5,7 +5,7 @@ const diskRouter = require('./routes/diskRouter');
 const app = express();
 
 app.use(express.json());
-app.use('/user', userRouter);
-app.use('/disk', diskRouter);
+app.use('/', userRouter);
+app.use('/', diskRouter);
 
 module.exports = app;
