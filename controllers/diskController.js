@@ -20,9 +20,9 @@ function findDiskById(req, res) {
 function addDisk(req, res) {
   const disk = new Disk(req.body);
   disk.save((error, diskData) => {
-    if (error) return res.status(500).send({ message: `Error ${error.name}. Couldn't create disk` });
-    if (!diskData) return res.status(404).send({ message: 'Error. Disk data can\'t be empty' });
-    return res.status(200).send(disk);
+    if (error) return res.status(400).send({ message: `Error ${error.name}. Couldn't create disk` });
+    if (!disk) return res.status(404).send({ message: 'Error. Disk data can\'t be empty' });
+    return res.status(200).send(diskData);
   });
 }
 
