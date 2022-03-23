@@ -21,8 +21,8 @@ function addUser(req, res) {
   const user = new User(req.body);
   user.save((error, userData) => {
     if (error) return res.status(400).send({ message: `Error ${error.name}. Couldn't create user` });
-    if (!userData) return res.status(404).send({ message: 'Error. User data can\'t be empty' });
-    return res.status(200).send(user);
+    if (!user) return res.status(404).send({ message: 'Error. User data can\'t be empty' });
+    return res.status(200).send(userData);
   });
 }
 
