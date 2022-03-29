@@ -32,7 +32,7 @@ function updateUser(req, res) {
   User.findByIdAndUpdate(userId, req.body, (err, user) => {
     if (err) return res.status(500).send(err.message);
     if (!user) return res.status(404).send({ message: 'User couldn\'t be found' });
-    return res.status(200).send({ message: `User ${user} updated.` }).jsonp(user);
+    return res.status(200).send({ message: `User ${user} updated.` });
   });
 }
 
