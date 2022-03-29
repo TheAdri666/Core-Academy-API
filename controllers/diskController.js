@@ -32,7 +32,7 @@ function updateDisk(req, res) {
   Disk.findByIdAndUpdate(diskId, req.body, (err, disk) => {
     if (err) return res.status(500).send(err.message);
     if (!disk) return res.status(404).send({ message: 'Disk couldn\'t be found' });
-    return res.status(200).send({ message: `Disk ${disk} updated.` }).jsonp(disk);
+    return res.status(200).send({ message: `Disk ${disk} updated.` });
   });
 }
 
