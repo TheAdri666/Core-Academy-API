@@ -2,12 +2,12 @@ const router = require('express').Router();
 const UserCtrl = require('../controllers/userController');
 
 router
-  .route('/user')
+  .route('/')
   .get(UserCtrl.findAllUsers)
   .post(UserCtrl.addUser);
 
 router
-  .route('/user/:id')
+  .route('/:id')
   .get(UserCtrl.findUserById)
   .put(UserCtrl.updateUser)
   .delete(UserCtrl.deleteUser);
